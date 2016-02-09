@@ -1,0 +1,145 @@
+
+.grid-frame {
+
+}
+
+.task-manager {
+  width: 300px;
+
+  margin: 8px;
+
+  .tasks-completed-pane, .tasks-pane {
+    .title-bar {
+      background: $dark-blue;
+      border-top-right-radius: 4px;
+      border-top-left-radius: 4px;
+
+      .title {
+        color: #f1f1f3;
+        font-size: 24px;
+      }
+    }
+  }
+
+  .tasks-completed-pane {
+    .wrapper {
+      padding: 40px;
+
+      .circle {
+        background: $dark-blue;
+        position: inherit;
+        border-radius: 50%;
+        padding-bottom: 100%;
+
+        .percent-holder {
+          position: absolute;
+          top: 168px;
+          left: 110px;
+
+          .percent-done {
+            color: white;
+            font-size: 75px;
+
+            &::after {
+              color: $light-grey;
+              content: "%";
+              font-size: 30px;
+              font-weight: 600;
+              vertical-align: top;
+              line-height: 55px;
+            }
+          }
+        }
+      }
+
+      .round-progress-wrapper {
+        position: inherit !important;
+        padding-bottom: 0 !important;
+
+        .round-progress {
+          padding-top: 80px;
+          padding-bottom: 20px;
+        }
+      }
+    }
+  }
+
+  .tasks-pane {
+    min-height: 357px;
+
+    ul {
+      list-style: none;
+      margin: 30px
+    }
+
+    form {
+      margin: 30px;
+    }
+
+    .completed {
+      text-decoration: line-through;
+      color: grey;
+    }
+  }
+
+  .tabs-pane {
+    background: $unselected-grey;
+
+    .graph, .list, .marker {
+      height: 75px;
+      padding-top: 10px;
+      text-align: center;
+
+      i {
+        color: $icon-grey;
+        font-size: 24px;
+      }
+
+      .title {
+        color: $light-grey;
+        font-size: 16px;
+        font-weight: bold;
+        margin-top: 8px;
+      }
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      &.selected {
+        background: $off-white;
+        i {
+          color: $light-blue;
+        }
+
+        .title {
+          color: $light-blue;
+        }
+      }
+    }
+
+    .graph {
+      border-top: 1px solid $off-white;
+      border-right: 1px solid $off-white;
+
+      &.selected {
+        border: none;
+      }
+    }
+
+    .list {
+      border-top: 1px solid $off-white;
+      border-left: 1px solid $off-white;
+
+      &.selected {
+        border: none;
+      }
+
+    }
+
+    .marker {
+      border-top: 1px solid $off-white;
+      border-left: 1px solid $off-white;
+    }
+  }
+}

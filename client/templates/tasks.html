@@ -1,0 +1,71 @@
+---
+name: tasks
+url: /
+---
+
+<div ng-controller="TasksCtrl as vm" class="grid-block vertical task-manager">
+  <div class="vertical grid-block tasks-completed-pane" ng-hide="vm.viewState !== 'task-status'">
+    <div class="grid-block title-bar">
+      <div class="center title">Tasks Completed</div>
+    </div>
+    <div class="grid-content wrapper">
+      <div class="circle">
+        <div class="percent-holder">
+          <span class="percent-done">{{ vm.calculatePercent(vm.getTotalTasksCompleted())}}</span>
+        </div>
+      </div>
+      <div
+        round-progress
+        max="100"
+        current="vm.calculatePercent(vm.getTotalTasksCompleted())"
+        color="#14b9d6"
+        bgcolor="#f1f0f0"
+        radius="100"
+        stroke="25"
+        clockwise="true"
+        responsive="true"
+        duration="800"
+        animation="easeInOutQuart"
+        animation-delay="0">
+      </div>
+    </div>
+  </div>
+  <div class="vertical grid-block tasks-pane" ng-hide="vm.viewState !== 'task-list'">
+    <div class="grid-content title-bar">
+      <div class="center title">Tasks</div>
+    </div>
+    <div class="grid-content">
+      <ul>
+        <li ng-repeat="task in vm.tasks" class="task" ng-class="(task.completed) ? 'completed': ''">
+          <input type="checkbox" ng-click="vm.markAsComplete($index)" ng-checked="(task.completed)" />
+          {{ task.text }}
+        </li>
+      </ul>
+      <form ng-submit="vm.add(vm.newTask)">
+        <div class="form-group">
+          <input ng-model="vm.newTask" type="text" placeholder="Type new task and hit enter" class="form-control"/>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="grid-block tabs-pane">
+    <div class="grid-content graph selected" ng-class="(vm.viewState === 'task-status') ? 'selected': ''" ng-click="vm.viewState = 'task-status';">
+      <i class="fi-graph-pie"></i>
+      <div class="title">
+        CHARTS
+      </div>
+    </div>
+    <div class="grid-content list" ng-class="(vm.viewState === 'task-list') ? 'selected': ''" ng-click="vm.viewState = 'task-list';">
+      <i class="fi-list-thumbnails"></i>
+      <div class="title">
+        TASKS
+      </div>
+    </div>
+    <div class="grid-content marker">
+      <i class="fi-marker"></i>
+      <div class="title">
+        EVENTS
+      </div>
+    </div>
+  </div>
+</div>

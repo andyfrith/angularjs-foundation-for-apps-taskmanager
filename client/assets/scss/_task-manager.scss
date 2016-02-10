@@ -32,9 +32,11 @@
         padding-bottom: 100%;
 
         .percent-holder {
+          left: 0;
           position: absolute;
+          text-align: center;
           top: 168px;
-          left: 110px;
+          width: 100%;
 
           .percent-done {
             color: white;

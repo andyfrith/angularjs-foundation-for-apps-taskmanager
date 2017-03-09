@@ -4,7 +4,7 @@ This demo built with AngularJS and Foundation for Apps CSS.
 
 ## Screenshot
 
-# ![BaseballCards](http://demo.goodapplemedia.com/demos/TaskManager/assets/img/screenshot.png)
+# ![TaskManager](http://demo.goodapplemedia.com/demos/TaskManager/assets/img/screenshot.png)
 
 ## Live demo
 
